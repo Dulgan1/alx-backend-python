@@ -1,4 +1,4 @@
-#!/str/bin/env python3
+#!/usr/bin/env python3
 """Typed finction float to int"""
 
 
