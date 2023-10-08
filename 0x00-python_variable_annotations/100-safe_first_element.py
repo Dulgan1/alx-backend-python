@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Tyoe annotated module"""
-from typing import Sequence, Any, Unioin
+from typing import Sequence, Any, Union
 
 
 def safe_first_element(lst: Sequence[Any]) -> Union[Any, None]:
