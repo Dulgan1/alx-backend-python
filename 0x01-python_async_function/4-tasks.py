@@ -3,8 +3,8 @@
 import asyncio
 from typing import List
 
-wait_random = __import__('0-basic_async_syntax').wait_random
 task_wait_random = __import__('3-task').task_wait_random
+
 
 async def task_wait_n(n: int, max_delay: int) -> List[float]:
     """Task Based alt of wait_n from 1-concurrent_coroutines.py:
