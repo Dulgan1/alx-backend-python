@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """Test module for utils"""
 import unittest
+from unittest.mock import patch
 import utils
 from parameterized import parameterized
+from requests.exceptions import Timeout
 
 
 class TestAccessNestedMap(unittest.TestCase):
@@ -26,3 +28,22 @@ class TestAccessNestedMap(unittest.TestCase):
         with self.assertRaises(KeyError) as exc:
             utils.access_nested_map(nested_map, path)
             self.assertEqual(exc.exception.arg, ('KeyError',))
+
+
+class TestGetJson(unittest.TestCase):
+    """Test for utils.get_json"""
+    @pareterized.expand([
+        ("http://example.com", {"payload": True}),
+        ("http://holberton.io", {"payload": False})
+    ])
+    @patch('utils.request')
+    def test_get_json(self, test_url, test_payload, mock_request):
+        """Tests utils get json witb parameterized inputs"""
+        mock_request.get.side_effect = Timeout
+        mock_request.json.return_value = test_payload
+
+        with self.assertRaises(Timeout):
+            payload = utils.get_json(test_url)
+            mock_request.get.assert_called_once()
+            mock_request.get.assertEqual(payload, test_payload)
+            mock_request.get.assert_called_with(test_url)
