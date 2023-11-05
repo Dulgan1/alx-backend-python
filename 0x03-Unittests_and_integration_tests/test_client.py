@@ -2,6 +2,7 @@
 """Test module for client"""
 import unittest
 import client
+from parameterized import parameterized
 
 
 class TestGithubOrgClient(unittest.TestCase):
