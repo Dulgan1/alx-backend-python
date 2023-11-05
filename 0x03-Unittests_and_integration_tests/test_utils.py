@@ -2,6 +2,7 @@
 """Test module for utils"""
 import unittest
 import utils
+from parameterized import parameterized
 
 
 class TestAccessNestedMap(unittest.TestCase):
