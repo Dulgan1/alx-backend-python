@@ -32,11 +32,11 @@ class TestAccessNestedMap(unittest.TestCase):
 
 class TestGetJson(unittest.TestCase):
     """Test for utils.get_json"""
-    @pareterized.expand([
+    @parameterized.expand([
         ("http://example.com", {"payload": True}),
         ("http://holberton.io", {"payload": False})
     ])
-    @patch('utils.request')
+    @patch('utils.requests')
     def test_get_json(self, test_url, test_payload, mock_request):
         """Tests utils get json witb parameterized inputs"""
         mock_request.get.side_effect = Timeout
