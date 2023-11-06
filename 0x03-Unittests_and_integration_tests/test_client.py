@@ -3,6 +3,7 @@
 import unittest
 import client
 from parameterized import parameterized
+from unittest.mock import patch
 
 
 class TestGithubOrgClient(unittest.TestCase):
